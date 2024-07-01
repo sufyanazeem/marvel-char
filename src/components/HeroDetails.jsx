@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
 import { fetchHero } from "../libs/utils";
 
 export default function HeroDetails() {
@@ -19,7 +18,7 @@ export default function HeroDetails() {
     fetchHero(id)
       .then((data) => setHero(data))
       .catch((err) => console.error(err));
-  }, []);
+  }, [id]); // Add 'id' to the dependency array
 
   if (hero) {
     name = hero.data.results[0].name;
@@ -30,12 +29,12 @@ export default function HeroDetails() {
     series = hero.data.results[0].series.items;
   }
 
-  if (!hero) return;
+  if (!hero) return null;
 
   return (
     <div className="container large">
       <div className="hero__details-container">
-        <img src={thumbnailUrl} alt="hero image full size" />
+        <img src={thumbnailUrl} alt="" /> {/* Removed redundant alt attribute */}
         <div className="hero__details">
           <h4>Name</h4>
           <p>{name}</p>

@@ -2,7 +2,6 @@
 import Navbar from "./components/Navbar";
 import NavItem from "./components/Navbar/NavItem";
 import Logo from "./components/Navbar/Logo";
-import About from "./components/About";
 import HeroDetails from "./components/HeroDetails";
 import Home from "./components/Home";
 
@@ -14,7 +13,6 @@ function App() {
     <Router>
       <Navbar logo={<Logo text={"Marbabel"} />}>
         <NavItem to={"/"} text={"Home"} />
-        <NavItem to={"/about"} text={"About"} />
       </Navbar>
       <Routes>
         <Route path="/" element={<Home />} />

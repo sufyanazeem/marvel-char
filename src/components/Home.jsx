@@ -1,19 +1,15 @@
-import React from "react";
-
-import { useState } from "react";
-
+import React, { useState } from "react";
 import Container from "./Container";
 import SearchBar from "./SearchBar";
 import Grid from "./Grid";
 import Card from "./Card";
-
 import { fetchHeros } from "../libs/utils";
 
 const IMG_FANTASTIC = "portrait_fantastic";
 
 export default function Home() {
   const [heroes, setHeroes] = useState([]);
-  const [error, setError] = useState();
+  // Removed the unused 'error' variable
 
   let cards;
 
@@ -47,7 +43,7 @@ export default function Home() {
       <SearchBar
         handleClick={handleClick}
         setHeroes={setHeroes}
-        setError={setError}
+        // Removed setError from props
       />
       <h2>Results</h2>
       <Grid>{cards ? cards : null}</Grid>
